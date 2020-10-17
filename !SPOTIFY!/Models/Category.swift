@@ -1,7 +1,7 @@
 
 import Foundation
 
-class Category {
+class Category: Codable {
     let title: String
     let subtitle: String
     let albums: [Album]
