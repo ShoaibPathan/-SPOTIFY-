@@ -19,9 +19,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="290" estimatedRowHeight="290" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WWK-u7-bch">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="290" id="WaQ-fH-u6t">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="290" id="WaQ-fH-u6t" customClass="CategoryCell" customModule="_SPOTIFY_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="290"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WaQ-fH-u6t" id="vQ8-bR-flF">
@@ -58,7 +58,7 @@
                                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             </collectionViewFlowLayout>
                                                             <cells>
-                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumCell" id="KGb-SQ-4Sb">
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumCell" id="KGb-SQ-4Sb" customClass="AlbumCell" customModule="_SPOTIFY_" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="160" height="199"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mYd-nW-7gv">
@@ -99,12 +99,18 @@
                                                                     </collectionViewCellContentView>
                                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <size key="customSize" width="160" height="199"/>
+                                                                    <connections>
+                                                                        <outlet property="artistLabel" destination="ZQe-Oa-e9H" id="wOf-UO-vjY"/>
+                                                                        <outlet property="thumbnailImageView" destination="mbm-8X-JGN" id="QER-X9-g7F"/>
+                                                                        <outlet property="titleLabel" destination="x0f-hA-SSX" id="rEk-3m-h54"/>
+                                                                    </connections>
                                                                 </collectionViewCell>
                                                             </cells>
                                                         </collectionView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="njJ-wL-9xr" secondAttribute="bottom" id="DXh-Fg-epz"/>
                                                 <constraint firstItem="njJ-wL-9xr" firstAttribute="leading" secondItem="vQ8-bR-flF" secondAttribute="leading" id="PMN-re-CuU"/>
@@ -113,6 +119,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="collectionView" destination="8ai-89-SWP" id="dXg-jl-pBL"/>
+                                            <outlet property="subtitleLabel" destination="21z-ZE-ki0" id="dBi-rh-0Cc"/>
+                                            <outlet property="titleLabel" destination="LEg-OZ-ZGK" id="UaJ-t1-5tb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -129,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3291" y="-1264"/>
+            <point key="canvasLocation" x="-2862" y="-1405"/>
         </scene>
         <!--Song View Controller-->
         <scene sceneID="Hhx-xg-xdX">
