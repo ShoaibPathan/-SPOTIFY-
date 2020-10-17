@@ -1,5 +1,5 @@
 import UIKit
 
-class CategoryCell: UICollectionViewCell {
+class CategoryCell: UITableViewCell {
     
 }
