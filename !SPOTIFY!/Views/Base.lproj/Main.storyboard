@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="290" estimatedRowHeight="290" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WWK-u7-bch">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="59" width="414" height="837"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="290" id="WaQ-fH-u6t" customClass="CategoryCell" customModule="_SPOTIFY_" customModuleProvider="target">
@@ -51,7 +51,7 @@
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8ai-89-SWP">
                                                             <rect key="frame" x="0.0" y="50.5" width="414" height="239.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Php-Bo-beg">
+                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Php-Bo-beg">
                                                                 <size key="itemSize" width="160" height="199"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -59,7 +59,7 @@
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumCell" id="KGb-SQ-4Sb" customClass="AlbumCell" customModule="_SPOTIFY_" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="199"/>
+                                                                    <rect key="frame" x="0.0" y="20.5" width="160" height="199"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mYd-nW-7gv">
                                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="199"/>
@@ -75,14 +75,17 @@
                                                                                             <constraint firstAttribute="width" constant="160" id="c9F-Jc-Db7"/>
                                                                                         </constraints>
                                                                                     </imageView>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="UltraLife" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0f-hA-SSX">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UltraLife" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0f-hA-SSX">
                                                                                         <rect key="frame" x="0.0" y="147" width="160" height="30.5"/>
                                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Oh Wonder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQe-Oa-e9H">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh Wonder" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQe-Oa-e9H">
                                                                                         <rect key="frame" x="0.0" y="184.5" width="160" height="14.5"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="14.5" id="tmn-mu-2kL"/>
+                                                                                        </constraints>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                         <color key="textColor" white="0.40033603449999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -136,7 +139,7 @@
                         <constraints>
                             <constraint firstItem="WWK-u7-bch" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0Vz-s7-DXy"/>
                             <constraint firstItem="WWK-u7-bch" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RQo-sT-SKK"/>
-                            <constraint firstItem="WWK-u7-bch" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hJ8-8i-QA3"/>
+                            <constraint firstItem="WWK-u7-bch" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="hJ8-8i-QA3"/>
                             <constraint firstAttribute="bottom" secondItem="WWK-u7-bch" secondAttribute="bottom" id="nYJ-F1-D3X"/>
                         </constraints>
                     </view>
