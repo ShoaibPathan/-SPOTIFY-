@@ -137,6 +137,9 @@
                             <constraint firstAttribute="bottom" secondItem="WWK-u7-bch" secondAttribute="bottom" id="nYJ-F1-D3X"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="WWK-u7-bch" id="kt4-ld-WHj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
