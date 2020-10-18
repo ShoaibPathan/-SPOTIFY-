@@ -106,6 +106,9 @@
                                                                     </connections>
                                                                 </collectionViewCell>
                                                             </cells>
+                                                            <connections>
+                                                                <outlet property="dataSource" destination="BYZ-38-t0r" id="aQT-wM-nrB"/>
+                                                            </connections>
                                                         </collectionView>
                                                     </subviews>
                                                 </stackView>
