@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F329CC9253CFE3F001E97FD /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F329CC8253CFE3F001E97FD /* SongCell.swift */; };
 		5F6042D2253B94DA0052B76C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6042D1253B94DA0052B76C /* CategoryCell.swift */; };
 		5FB2BB57253ADE7900D6652B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2BB56253ADE7900D6652B /* AppDelegate.swift */; };
 		5FB2BB59253ADE7900D6652B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2BB58253ADE7900D6652B /* SceneDelegate.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F329CC8253CFE3F001E97FD /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		5F6042D1253B94DA0052B76C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		5FB2BB53253ADE7900D6652B /* !SPOTIFY!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "!SPOTIFY!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB2BB56253ADE7900D6652B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				5FB2BB5C253ADE7900D6652B /* Main.storyboard */,
 				5F6042D1253B94DA0052B76C /* CategoryCell.swift */,
 				5FB5B175253B9B150096305A /* AlbumCell.swift */,
+				5F329CC8253CFE3F001E97FD /* SongCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				5FB2BBA3253AE2F000D6652B /* SongViewController.swift in Sources */,
 				5FB2BB57253ADE7900D6652B /* AppDelegate.swift in Sources */,
 				5FB2BBB2253AE56B00D6652B /* Album.swift in Sources */,
+				5F329CC9253CFE3F001E97FD /* SongCell.swift in Sources */,
 				5FB2BB59253ADE7900D6652B /* SceneDelegate.swift in Sources */,
 				5FB2BBB7253AE58500D6652B /* Category.swift in Sources */,
 				5F6042D2253B94DA0052B76C /* CategoryCell.swift in Sources */,
