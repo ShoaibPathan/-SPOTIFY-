@@ -6,6 +6,16 @@ class HomeViewController: UIViewController {
     
    
     var categories: [Category]!
+    
+    
+    //Set the status bar icons to white so it shows up on the black background
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         

@@ -14,6 +14,13 @@ class AlbumViewController: UIViewController {
     
     var albumPrimaryColor: CGColor!
     var album: Album!
+    
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.isNavigationBarHidden = true

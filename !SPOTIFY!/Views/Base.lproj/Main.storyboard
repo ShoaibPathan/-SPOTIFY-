@@ -222,7 +222,7 @@
                                                 <rect key="frame" x="-2" y="0.0" width="368" height="31"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="maximumTrackTintColor" white="0.40033603449999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="maximumTrackTintColor" red="0.60110416052476423" green="0.60110416052476423" blue="0.60110416052476423" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <connections>
                                                     <action selector="songSliderChanged:" destination="gWu-PV-XiE" eventType="valueChanged" id="b7d-wM-XQ4"/>
                                                 </connections>
@@ -395,7 +395,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6A5-lF-331">
                                                     <rect key="frame" x="20" y="19" width="374" height="42.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All About You" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q54-Rt-mO4">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All About You" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q54-Rt-mO4" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                                             <rect key="frame" x="0.0" y="0.0" width="106.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -473,6 +473,11 @@
             <point key="canvasLocation" x="-3352.1739130434785" y="-1716.2946428571429"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Q54-Rt-mO4">
+            <size key="intrinsicContentSize" width="106.5" height="20.5"/>
+        </designable>
+    </designables>
     <resources>
         <image name="back" width="24" height="24"/>
         <image name="down" width="24" height="24"/>

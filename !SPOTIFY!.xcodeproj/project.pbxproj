@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0EF785253D9F7100FA4713 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0EF784253D9F7100FA4713 /* MarqueeLabel */; };
 		5F329CC9253CFE3F001E97FD /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F329CC8253CFE3F001E97FD /* SongCell.swift */; };
 		5F329CCE253D1388001E97FD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F329CCD253D1388001E97FD /* User.swift */; };
 		5F329CD3253D148A001E97FD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F329CD2253D148A001E97FD /* UserService.swift */; };
@@ -95,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0EF785253D9F7100FA4713 /* MarqueeLabel in Frameworks */,
 				5F85C423253D2D9800C02630 /* UIImageColors in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +247,7 @@
 			name = "!SPOTIFY!";
 			packageProductDependencies = (
 				5F85C422253D2D9800C02630 /* UIImageColors */,
+				5F0EF784253D9F7100FA4713 /* MarqueeLabel */,
 			);
 			productName = "!SPOTIFY!";
 			productReference = 5FB2BB53253ADE7900D6652B /* !SPOTIFY!.app */;
@@ -319,6 +322,7 @@
 			mainGroup = 5FB2BB4A253ADE7900D6652B;
 			packageReferences = (
 				5F85C421253D2D9800C02630 /* XCRemoteSwiftPackageReference "UIImageColors" */,
+				5F0EF783253D9F7100FA4713 /* XCRemoteSwiftPackageReference "MarqueeLabel" */,
 			);
 			productRefGroup = 5FB2BB54253ADE7900D6652B /* Products */;
 			projectDirPath = "";
@@ -719,6 +723,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5F0EF783253D9F7100FA4713 /* XCRemoteSwiftPackageReference "MarqueeLabel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cbpowell/MarqueeLabel.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.5;
+			};
+		};
 		5F85C421253D2D9800C02630 /* XCRemoteSwiftPackageReference "UIImageColors" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jathu/UIImageColors.git";
@@ -730,6 +742,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5F0EF784253D9F7100FA4713 /* MarqueeLabel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F0EF783253D9F7100FA4713 /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
+			productName = MarqueeLabel;
+		};
 		5F85C422253D2D9800C02630 /* UIImageColors */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5F85C421253D2D9800C02630 /* XCRemoteSwiftPackageReference "UIImageColors" */;
