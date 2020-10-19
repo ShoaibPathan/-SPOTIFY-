@@ -27,11 +27,14 @@ class SongViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Temporary: Data Seeding
         
         album = CategoryService.shared.categories.randomElement()!.albums.randomElement()
         albumPrimaryColor = UIColor.blue.cgColor
         albumImageView.image = UIImage(named: "\(album.image)-lg")
+        currentSongIndex = 0
+       playSelectedSong()
         songSlider.value = 0
         startTimeLabel.text = "00:00"
         
