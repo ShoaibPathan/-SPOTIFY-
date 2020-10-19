@@ -6,6 +6,10 @@ import UIImageColors
 
 
 class SongViewController: UIViewController, AudioServiceDelegate {
+    func songIsPlaying(currentTime: Double, duration: Double) {
+        <#code#>
+    }
+    
     
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var albumTitleLabel: UILabel!
@@ -53,13 +57,10 @@ class SongViewController: UIViewController, AudioServiceDelegate {
         gradientLayer.locations = [0.0, 0.4]
         view.layer.insertSublayer(gradientLayer, at: 0)
         
-        if AudioService.shared.songLiked() {
-            likeButton.backgroundColor = UIColor.green
-        } else {
-            likeButton.backgroundColor = UIColor.black
-        }
+    
         
     }
+
     //Create private class function to play the current selected song
     private func playSelectedSong() {
         let selectedSong = album.songs[currentSongIndex]
@@ -72,11 +73,7 @@ class SongViewController: UIViewController, AudioServiceDelegate {
     
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
-        if AudioService.shared.songLiked() {
-            likeButton.backgroundColor = UIColor.green
-        } else {
-            likeButton.backgroundColor = UIColor.black
-        }
+     
     }
     
     
@@ -85,7 +82,7 @@ class SongViewController: UIViewController, AudioServiceDelegate {
             
             sender.isContinuous = false
         } else {
-            AudioService.shared.playSong(atTime: Double(sender.value))
+            AudioService.shared.play(atTime: Double(sender.value))
             sender.isContinuous = true
         }
     }
