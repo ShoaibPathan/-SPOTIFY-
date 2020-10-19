@@ -76,7 +76,13 @@ class SongViewController: UIViewController {
     }
     
     @IBAction func previousButtonPressed(_ sender: UIButton) {
+        //Swift Foundation's .max(_:, _:) function compares and returns the greater of two values. To avoid a user pressing previous button when they are already on the first song (to avoid an app crash due to index out of range) then as long as the current song index is subtracted by 1 when this button is tapped then if user tries to go to previous song when there is none, they will be setting the value to -1 and they won't be able to do that because the max function set the value 0 to be the greatest in the event that any number is less than 0 
+        currentSongIndex = max(0, currentSongIndex - 1)
+        playSelectedSong()
     }
+    
+    
+    
     @IBAction func dropdownArrowPressed(_ sender: UIButton) {
     }
     
