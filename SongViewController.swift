@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 import AVFoundation
 import UIImageColors
-
+import MarqueeLabel
 
 class SongViewController: UIViewController  {
  
@@ -14,7 +14,7 @@ class SongViewController: UIViewController  {
 
 
     @IBOutlet weak var albumImageView: UIImageView!
-    @IBOutlet weak var albumTitleLabel: UILabel!
+    @IBOutlet weak var albumTitleLabel: MarqueeLabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var songSlider: UISlider!
     @IBOutlet weak var favoriteButton: UIButton!
@@ -40,14 +40,7 @@ override func viewDidLoad() {
         
         currentTimeLabel.text = "00:00"
     
-        let songSelection = album.songs[selectedSongIndex]
-    
-    if UserService.shared.isFavorite(song: songSelection ){
-        favoriteButton.setImage(UIImage(named: "heart-filled"), for: .normal)
-    } else {
-        favoriteButton.setImage(UIImage(named: "heart"), for: .normal)
-    }
-
+      updateFavoriteButton()
     
         playSelectedSong()
         
@@ -70,6 +63,9 @@ override func viewDidLoad() {
         let selectedSong = album.songs[selectedSongIndex]
        
         albumTitleLabel.text = selectedSong.title
+       albumTitleLabel.type = .leftRight
+       albumTitleLabel.speed = .rate(30)
+        albumTitleLabel.textAlignment = .center
         artistLabel.text = selectedSong.artist
         AudioService.shared.play(song: selectedSong)
         
@@ -89,6 +85,16 @@ override func viewDidLoad() {
             favoriteButton.setImage(UIImage(named: "heart-filled"), for: .normal)
         }
         
+    }
+    
+    func updateFavoriteButton(){
+        let selectedSong = album.songs[selectedSongIndex]
+    
+    if UserService.shared.isFavorite(song: selectedSong){
+        favoriteButton.setImage(UIImage(named: "heart-filled"), for: .normal)
+    } else {
+        favoriteButton.setImage(UIImage(named: "heart"), for: .normal)
+    }
     }
     
     
@@ -126,14 +132,14 @@ override func viewDidLoad() {
         //Using the remainder operator to safeguard against an index out of range if user presses the next button and there are no more songs in the album. If the current song index + 1 reaches a point where the remainder is 0 then the current song index will be 0 and will halt
         selectedSongIndex = (selectedSongIndex + 1) % album.songs.count
         playSelectedSong()
-        favoriteButton.setImage(UIImage(named: "heart"), for: .normal)
+        updateFavoriteButton()
     }
     
     @IBAction func previousButtonPressed(_ sender: UIButton) {
         //Swift Foundation's .max(_:, _:) function compares and returns the greater of two values. To avoid a user pressing previous button when they are already on the first song (to avoid an app crash due to index out of range) then as long as the current song index is subtracted by 1 when this button is tapped then if user tries to go to previous song when there is none, they will be setting the value to -1 and they won't be able to do that because the max function set the value 0 to be the greatest in the event that any number is less than 0
         selectedSongIndex = max(0, selectedSongIndex - 1)
         playSelectedSong()
-        favoriteButton.setImage(UIImage(named: "heart"), for: .normal)
+        updateFavoriteButton()
     }
     
     
