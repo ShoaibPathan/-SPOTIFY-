@@ -10,11 +10,7 @@ class SongService {
     func getSong(song: Song) {
         let song = AudioService.shared.appSongs.randomElement()
     }
-    
-//    func likedSong(song: Song)-> Bool{
-//        
-//    }
-  
+
     }
     
     

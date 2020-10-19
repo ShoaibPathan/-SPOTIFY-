@@ -27,24 +27,27 @@ class SongViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Temporary: Data Seeding
         
         album = CategoryService.shared.categories.randomElement()!.albums.randomElement()
         albumPrimaryColor = UIColor.blue.cgColor
         albumImageView.image = UIImage(named: "\(album.image)-lg")
+        currentSongIndex = 0
+      
         songSlider.value = 0
         startTimeLabel.text = "00:00"
         
-        playPauseButton.layer.cornerRadius = playPauseButton.frame.size.width / 2
+        playPauseButton.layer.cornerRadius = playPauseButton.frame.size.width / 2.0
         
         
-        
+        playSelectedSong()
         
         //Gradient background
         let backgroundColor = view.backgroundColor!.cgColor
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.frame
-        gradientLayer.colors = [albumPrimaryColor, backgroundColor]
+        gradientLayer.colors = [albumPrimaryColor!, backgroundColor]
         gradientLayer.locations = [0.0, 0.4]
         view.layer.insertSublayer(gradientLayer, at: 0)
         
@@ -54,9 +57,11 @@ class SongViewController: UIViewController {
     //Create private class function to play the current selected song
     private func playSelectedSong() {
         let selectedSong = album.songs[currentSongIndex]
-        AudioService.shared.play(song: selectedSong)
+       
         albumTitleLabel.text = selectedSong.title
         artistLabel.text = selectedSong.artist
+        AudioService.shared.play(song: selectedSong)
+        
     }
     
     
@@ -72,14 +77,14 @@ class SongViewController: UIViewController {
       //Because this button is used to either play or pause a song, create a property that tracks the current status of audio playback. If the UIButton 'sender' 's tag property equals zero then pause the song and set the image view to be the "play" image symbol
         //if button is pressed and changes from pause to play then the image view should be the "pause" pause symbol and Audio service should resume playing
         let TAG_PAUSE = 0
-        let TAG_RESUME = 1
+        let TAG_PLAY = 1
         
         if sender.tag == TAG_PAUSE {
             AudioService.shared.pause()
             playPauseButton.setImage(UIImage(named: "play"), for: .normal)
-            sender.tag = TAG_RESUME
+            sender.tag = TAG_PLAY
             
-        } else if sender.tag == TAG_RESUME{
+        } else if sender.tag == TAG_PLAY{
             AudioService.shared.resume()
             playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
             sender.tag = TAG_PAUSE
