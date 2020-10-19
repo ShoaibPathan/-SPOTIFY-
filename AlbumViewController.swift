@@ -12,28 +12,31 @@ class AlbumViewController: UIViewController {
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    var songs: [Song]!
+   
     var album: Album!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.isNavigationBarHidden = true
+        
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
 
-        //Use a temporary value for album property for data seeding purposes
+
         
-        album = CategoryService.shared.categories.first!.albums.randomElement()
-        songs = album.songs
-        
+
+              
+        albumImage.image = UIImage(named: album.image)
+        albumTitleLabel.text = album.name
+        descriptionLabel.text = "\(album.followers) followers by \(album.artist)"
         //Implement background gradient effect
         albumImage.image?.getColors({ colors in
             let primaryColor = colors!.primary.withAlphaComponent(0.8).cgColor
             self.updateBackground(with: primaryColor)
         })
-              
-        albumImage.image = UIImage(named: album.image)
-        albumTitleLabel.text = album.name
-        descriptionLabel.text = "\(album.followers) followers by \(album.artist)"
         
         if UserService.shared.isFollowingAlbum(album: album){
             followButton.setTitle("Following", for: .normal)
@@ -92,13 +95,13 @@ class AlbumViewController: UIViewController {
 }
 extension AlbumViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songs.count
+        return album.songs.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
-        let song = songs[indexPath.row]
+        let song = album.songs[indexPath.row]
         cell.updateSongCell(with: song)
         return cell
     }

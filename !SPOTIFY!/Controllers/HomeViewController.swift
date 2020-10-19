@@ -6,22 +6,41 @@ class HomeViewController: UIViewController {
     
    
     var categories: [Category]!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        navigationController?.isNavigationBarHidden = true 
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Linked the view controller as the collection view's data source in main.storyboard
         tableView.dataSource = self
-        tableView.delegate = self
+    
        
         categories = CategoryService.shared.categories
-   
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let albumViewController = segue.destination as? AlbumViewController, let album = sender as? Album {
+            if segue.identifier == "goToAlbum" {
+                
+                albumViewController.album = album 
+    }
 
 }
 
 
-
+}
+}
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let category = categories[collectionView.tag]
+        let selectedAlbum = category.albums[indexPath.row]
+        performSegue(withIdentifier: "goToAlbum", sender: selectedAlbum)
+        
+    }
+}
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
@@ -37,9 +56,6 @@ extension HomeViewController: UITableViewDataSource {
     
 }
 
-extension HomeViewController: UITableViewDelegate {
-    
-}
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

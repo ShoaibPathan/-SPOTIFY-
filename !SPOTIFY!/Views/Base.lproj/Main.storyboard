@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jys-EM-oBy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="290" estimatedRowHeight="290" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WWK-u7-bch">
-                                <rect key="frame" x="0.0" y="15" width="414" height="827"/>
+                                <rect key="frame" x="0.0" y="71" width="414" height="771"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="290" id="WaQ-fH-u6t" customClass="CategoryCell" customModule="_SPOTIFY_" customModuleProvider="target">
@@ -111,6 +111,7 @@
                                                             </cells>
                                                             <connections>
                                                                 <outlet property="dataSource" destination="BYZ-38-t0r" id="aQT-wM-nrB"/>
+                                                                <outlet property="delegate" destination="BYZ-38-t0r" id="enf-G3-yjo"/>
                                                             </connections>
                                                         </collectionView>
                                                     </subviews>
@@ -146,11 +147,12 @@
                     <navigationItem key="navigationItem" id="VdA-In-bKv"/>
                     <connections>
                         <outlet property="tableView" destination="WWK-u7-bch" id="kt4-ld-WHj"/>
+                        <segue destination="Jys-EM-oBy" kind="showDetail" identifier="goToAlbum" id="UWc-rT-OOS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2862" y="-1405"/>
+            <point key="canvasLocation" x="-2442.0289855072465" y="-1716.2946428571429"/>
         </scene>
         <!--Song View Controller-->
         <scene sceneID="Hhx-xg-xdX">
@@ -172,22 +174,22 @@
             <objects>
                 <viewController id="Jys-EM-oBy" customClass="AlbumViewController" customModule="_SPOTIFY_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q5J-GF-gON">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urs-Kq-yaI" userLabel="BackButton">
-                                <rect key="frame" x="20" y="49" width="40" height="40"/>
+                                <rect key="frame" x="20" y="5" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="h12-vV-AOt"/>
                                     <constraint firstAttribute="height" constant="40" id="ila-cD-vTl"/>
                                 </constraints>
                                 <state key="normal" image="back"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="kg5-lC-oF0"/>
+                                    <segue destination="h3u-m5-U7R" kind="showDetail" id="kg5-lC-oF0"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MgQ-2F-zOx">
-                                <rect key="frame" x="112" y="84" width="190" height="315.5"/>
+                                <rect key="frame" x="112" y="40" width="190" height="315.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ultralife-lg" translatesAutoresizingMaskIntoConstraints="NO" id="2Sv-WP-6qA">
                                         <rect key="frame" x="15" y="0.0" width="160" height="140"/>
@@ -239,7 +241,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yc2-LJ-T16">
-                                <rect key="frame" x="0.0" y="429.5" width="414" height="466.5"/>
+                                <rect key="frame" x="0.0" y="385.5" width="414" height="456.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SongCell" rowHeight="80" id="1fq-0Q-9nS" customClass="SongCell" customModule="_SPOTIFY_" customModuleProvider="target">
@@ -295,6 +297,7 @@
                             <constraint firstItem="MgQ-2F-zOx" firstAttribute="top" secondItem="MIZ-3m-ggx" secondAttribute="top" constant="40" id="lRV-sG-DzJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="3mo-zw-3WH"/>
                     <connections>
                         <outlet property="albumImage" destination="2Sv-WP-6qA" id="nht-X8-dKG"/>
                         <outlet property="albumTitleLabel" destination="yEM-Yh-yBJ" id="0sH-Zx-pdz"/>
@@ -306,7 +309,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oz5-Sc-nAr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1662" y="-1627"/>
+            <point key="canvasLocation" x="-1615.9420289855075" y="-1716.2946428571429"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LhL-i1-AjE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h3u-m5-U7R" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="aab-FE-mgn"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1h5-rP-LLb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1Nv-vt-6lU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IOE-QM-8S0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3352.1739130434785" y="-1716.2946428571429"/>
         </scene>
     </scenes>
     <resources>
