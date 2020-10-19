@@ -23,10 +23,10 @@ class AudioService {
     }
     
     func pause(){
-        audioPlayer.pause()
+        
     }
     
     func resume(){
-        audioPlayer.play()
+      
     }
 }

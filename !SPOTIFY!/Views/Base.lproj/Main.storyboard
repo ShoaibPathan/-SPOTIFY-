@@ -269,7 +269,7 @@
                                         </constraints>
                                         <state key="normal" image="pause"/>
                                         <connections>
-                                            <action selector="pauseButtonPressed:" destination="gWu-PV-XiE" eventType="touchUpInside" id="nRP-DU-5tJ"/>
+                                            <action selector="playPauseButtonPressed:" destination="gWu-PV-XiE" eventType="touchUpInside" id="nRP-DU-5tJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zL-3q-DtR">
