@@ -5,7 +5,7 @@ import AVFoundation
 import UIImageColors
 
 
-class SongViewController: UIViewController {
+class SongViewController: UIViewController, AudioServiceDelegate {
     
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var albumTitleLabel: UILabel!
@@ -27,6 +27,8 @@ class SongViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AudioService.shared.delegate = self
         
         //Temporary: Data Seeding
         
@@ -51,7 +53,11 @@ class SongViewController: UIViewController {
         gradientLayer.locations = [0.0, 0.4]
         view.layer.insertSublayer(gradientLayer, at: 0)
         
-    
+        if AudioService.shared.songLiked() {
+            likeButton.backgroundColor = UIColor.green
+        } else {
+            likeButton.backgroundColor = UIColor.black
+        }
         
     }
     //Create private class function to play the current selected song
@@ -66,10 +72,22 @@ class SongViewController: UIViewController {
     
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
+        if AudioService.shared.songLiked() {
+            likeButton.backgroundColor = UIColor.green
+        } else {
+            likeButton.backgroundColor = UIColor.black
+        }
     }
     
     
     @IBAction func songSliderChanged(_ sender: UISlider) {
+        if sender.isContinuous {
+            
+            sender.isContinuous = false
+        } else {
+            AudioService.shared.playSong(atTime: Double(sender.value))
+            sender.isContinuous = true
+        }
     }
     
     
