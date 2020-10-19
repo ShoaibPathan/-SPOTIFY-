@@ -170,6 +170,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="down"/>
                                 <connections>
+                                    <action selector="backButtonPressed:" destination="gWu-PV-XiE" eventType="touchUpInside" id="Cr4-in-if7"/>
                                     <action selector="dropdownArrowPressed:" destination="gWu-PV-XiE" eventType="touchUpInside" id="7l4-OX-vBk"/>
                                 </connections>
                             </button>
@@ -307,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XnF-Jj-W51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-846" y="-1716"/>
+            <point key="canvasLocation" x="-558" y="-1804"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="Lw1-Sh-q7O">
@@ -326,7 +327,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="back"/>
                                 <connections>
-                                    <segue destination="h3u-m5-U7R" kind="showDetail" id="kg5-lC-oF0"/>
+                                    <segue destination="h3u-m5-U7R" kind="presentation" identifier="BackToRootSegue" modalPresentationStyle="fullScreen" id="kg5-lC-oF0"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MgQ-2F-zOx">
@@ -460,7 +461,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="aab-FE-mgn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1h5-rP-LLb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
