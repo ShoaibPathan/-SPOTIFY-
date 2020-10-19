@@ -206,8 +206,8 @@
 		5FB2BBBB253AE5BF00D6652B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5F329CCD253D1388001E97FD /* User.swift */,
 				5FB2BBBF253AE8FE00D6652B /* Service */,
+				5F329CCD253D1388001E97FD /* User.swift */,
 				5FB2BBB1253AE56B00D6652B /* Album.swift */,
 				5FB2BBAC253AE55800D6652B /* Song.swift */,
 				5FB2BBB6253AE58500D6652B /* Category.swift */,

@@ -17,7 +17,7 @@ class SongViewController: UIViewController  {
     @IBOutlet weak var albumTitleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var songSlider: UISlider!
-    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var durationLabel: UILabel!
@@ -43,10 +43,19 @@ override func viewDidLoad() {
         songSlider.value = 0
         
         currentTimeLabel.text = "00:00"
-        
+    
+        let songSelection = album.songs[currentSongIndex]
+    
+    if UserService.shared.isFavorite(song: songSelection ){
+        favoriteButton.setImage(UIImage(named: "heart-filled"), for: .normal)
+    } else {
+        favoriteButton.setImage(UIImage(named: "heart"), for: .normal)
+    }
+
+    
         playSelectedSong()
         
-    //Gradient background
+    //UI customizations:
         albumPrimaryColor = UIColor.blue.cgColor
         albumImageView.image = UIImage(named: "\(album.image)-lg")
         let backgroundColor = view.backgroundColor!.cgColor
@@ -55,13 +64,11 @@ override func viewDidLoad() {
         gradientLayer.colors = [albumPrimaryColor!, backgroundColor]
         gradientLayer.locations = [0.0, 0.4]
         view.layer.insertSublayer(gradientLayer, at: 0)
-        
-
-        
         playPauseButton.layer.cornerRadius = playPauseButton.frame.size.width / 2.0
-    }
-
     
+
+
+}
     //Create private class function to play the current selected song
     private func playSelectedSong() {
         let selectedSong = album.songs[currentSongIndex]
@@ -73,8 +80,16 @@ override func viewDidLoad() {
     }
     
     
-    @IBAction func likeButtonPressed(_ sender: UIButton) {
-     
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+        let selectedSong = album.songs[currentSongIndex]
+        if UserService.shared.isFavorite(song: selectedSong){
+            UserService.shared.removeFavoriteSong(song: selectedSong)
+            favoriteButton.setImage(UIImage(named: "heart"), for: .normal)
+        } else {
+            UserService.shared.favoriteSong(song: selectedSong)
+            favoriteButton.setImage(UIImage(named: "heart-filled"), for: .normal)
+        }
+        
     }
     
     
