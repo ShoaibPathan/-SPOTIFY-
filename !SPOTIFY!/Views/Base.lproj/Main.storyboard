@@ -27,8 +27,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="290"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="njJ-wL-9xr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="290"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="njJ-wL-9xr">
+                                                    <rect key="frame" x="0.0" y="10" width="414" height="280"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="p9F-Z3-27X">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="35.5"/>
@@ -48,7 +48,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8ai-89-SWP">
-                                                            <rect key="frame" x="0.0" y="50.5" width="414" height="239.5"/>
+                                                            <rect key="frame" x="0.0" y="55.5" width="414" height="224.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Php-Bo-beg">
                                                                 <size key="itemSize" width="160" height="199"/>
@@ -58,7 +58,7 @@
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumCell" id="KGb-SQ-4Sb" customClass="AlbumCell" customModule="_SPOTIFY_" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="20.5" width="160" height="199"/>
+                                                                    <rect key="frame" x="0.0" y="13" width="160" height="199"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mYd-nW-7gv">
                                                                         <rect key="frame" x="0.0" y="0.0" width="160" height="199"/>
@@ -120,7 +120,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="njJ-wL-9xr" secondAttribute="bottom" id="DXh-Fg-epz"/>
                                                 <constraint firstItem="njJ-wL-9xr" firstAttribute="leading" secondItem="vQ8-bR-flF" secondAttribute="leading" id="PMN-re-CuU"/>
-                                                <constraint firstItem="njJ-wL-9xr" firstAttribute="top" secondItem="vQ8-bR-flF" secondAttribute="top" id="RVv-lQ-tCr"/>
+                                                <constraint firstItem="njJ-wL-9xr" firstAttribute="top" secondItem="vQ8-bR-flF" secondAttribute="top" constant="10" id="RVv-lQ-tCr"/>
                                                 <constraint firstAttribute="trailing" secondItem="njJ-wL-9xr" secondAttribute="trailing" id="lhc-4p-XnQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2442.0289855072465" y="-1716.2946428571429"/>
+            <point key="canvasLocation" x="-1897.1014492753625" y="-1804.0178571428571"/>
         </scene>
         <!--Song View Controller-->
         <scene sceneID="Hhx-xg-xdX">
@@ -452,7 +452,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oz5-Sc-nAr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1615.9420289855075" y="-1716.2946428571429"/>
+            <point key="canvasLocation" x="-1216" y="-1804"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LhL-i1-AjE">
@@ -471,7 +471,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOE-QM-8S0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3352.1739130434785" y="-1716.2946428571429"/>
+            <point key="canvasLocation" x="-2825" y="-1573"/>
         </scene>
     </scenes>
     <designables>
