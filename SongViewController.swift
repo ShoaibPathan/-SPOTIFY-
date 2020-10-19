@@ -20,6 +20,10 @@ class SongViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
+        
         pauseButton.layer.cornerRadius = pauseButton.frame.size.width / 2
     }
     
