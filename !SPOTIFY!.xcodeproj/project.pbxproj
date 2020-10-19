@@ -12,6 +12,7 @@
 		5F329CD3253D148A001E97FD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F329CD2253D148A001E97FD /* UserService.swift */; };
 		5F6042D2253B94DA0052B76C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6042D1253B94DA0052B76C /* CategoryCell.swift */; };
 		5F85C423253D2D9800C02630 /* UIImageColors in Frameworks */ = {isa = PBXBuildFile; productRef = 5F85C422253D2D9800C02630 /* UIImageColors */; };
+		5F85C428253D4CE000C02630 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F85C427253D4CE000C02630 /* AudioService.swift */; };
 		5FB2BB57253ADE7900D6652B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2BB56253ADE7900D6652B /* AppDelegate.swift */; };
 		5FB2BB59253ADE7900D6652B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2BB58253ADE7900D6652B /* SceneDelegate.swift */; };
 		5FB2BB5B253ADE7900D6652B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2BB5A253ADE7900D6652B /* HomeViewController.swift */; };
@@ -58,6 +59,7 @@
 		5F329CCD253D1388001E97FD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = SOURCE_ROOT; };
 		5F329CD2253D148A001E97FD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		5F6042D1253B94DA0052B76C /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		5F85C427253D4CE000C02630 /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		5FB2BB53253ADE7900D6652B /* !SPOTIFY!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "!SPOTIFY!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB2BB56253ADE7900D6652B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FB2BB58253ADE7900D6652B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				5FB2BBC8253AE92A00D6652B /* AlbumService.swift */,
 				5FB2BBCD253AE95A00D6652B /* SongService.swift */,
 				5F329CD2253D148A001E97FD /* UserService.swift */,
+				5F85C427253D4CE000C02630 /* AudioService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				5F329CD3253D148A001E97FD /* UserService.swift in Sources */,
 				5FB2BB59253ADE7900D6652B /* SceneDelegate.swift in Sources */,
 				5FB2BBB7253AE58500D6652B /* Category.swift in Sources */,
+				5F85C428253D4CE000C02630 /* AudioService.swift in Sources */,
 				5F6042D2253B94DA0052B76C /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,10 +13,14 @@ class SongViewController: UIViewController {
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pauseButton.layer.cornerRadius = pauseButton.frame.size.width / 2
     }
     
     
