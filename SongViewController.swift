@@ -5,47 +5,50 @@ import AVFoundation
 import UIImageColors
 
 
-class SongViewController: UIViewController, AudioServiceDelegate {
-    
+class SongViewController: UIViewController  {
+ 
+    var album: Album!
+    var currentSongIndex: Int!
+    var albumPrimaryColor: CGColor!
+    var userTouchedSlider = false
+
+
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var albumTitleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     @IBOutlet weak var songSlider: UISlider!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var playPauseButton: UIButton!
-    @IBOutlet weak var startTimeLabel: UILabel!
-    @IBOutlet weak var endTimeLabel: UILabel!
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     
     
-    var album: Album!
-    var currentSongIndex: Int!
-    var albumPrimaryColor: CGColor!
+
     
-    override func viewWillAppear(_ animated: Bool) {
+override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
     
-    override func viewDidLoad() {
+override func viewDidLoad() {
         super.viewDidLoad()
         
         AudioService.shared.delegate = self
         
-        //Temporary: Data Seeding
+        //Temporary: Data Seeding:
         
         album = CategoryService.shared.categories.randomElement()!.albums.randomElement()
-        albumPrimaryColor = UIColor.blue.cgColor
-        albumImageView.image = UIImage(named: "\(album.image)-lg")
+
         currentSongIndex = 0
       
         songSlider.value = 0
-        startTimeLabel.text = "00:00"
         
-        playPauseButton.layer.cornerRadius = playPauseButton.frame.size.width / 2.0
-        
+        currentTimeLabel.text = "00:00"
         
         playSelectedSong()
         
-        //Gradient background
+    //Gradient background
+        albumPrimaryColor = UIColor.blue.cgColor
+        albumImageView.image = UIImage(named: "\(album.image)-lg")
         let backgroundColor = view.backgroundColor!.cgColor
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.frame
@@ -53,13 +56,12 @@ class SongViewController: UIViewController, AudioServiceDelegate {
         gradientLayer.locations = [0.0, 0.4]
         view.layer.insertSublayer(gradientLayer, at: 0)
         
-        if AudioService.shared.songLiked() {
-            likeButton.backgroundColor = UIColor.green
-        } else {
-            likeButton.backgroundColor = UIColor.black
-        }
+
         
+        playPauseButton.layer.cornerRadius = playPauseButton.frame.size.width / 2.0
     }
+
+    
     //Create private class function to play the current selected song
     private func playSelectedSong() {
         let selectedSong = album.songs[currentSongIndex]
@@ -72,20 +74,17 @@ class SongViewController: UIViewController, AudioServiceDelegate {
     
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
-        if AudioService.shared.songLiked() {
-            likeButton.backgroundColor = UIColor.green
-        } else {
-            likeButton.backgroundColor = UIColor.black
-        }
+     
     }
     
     
     @IBAction func songSliderChanged(_ sender: UISlider) {
         if sender.isContinuous {
-            
+            userTouchedSlider = true
             sender.isContinuous = false
         } else {
-            AudioService.shared.playSong(atTime: Double(sender.value))
+            userTouchedSlider = false
+            AudioService.shared.play(atTime: Double(sender.value))
             sender.isContinuous = true
         }
     }
@@ -122,8 +121,28 @@ class SongViewController: UIViewController, AudioServiceDelegate {
     }
     
     
-    
     @IBAction func dropdownArrowPressed(_ sender: UIButton) {
     }
     
+}
+extension SongViewController: AudioServiceDelegate {
+    func songIsPlaying(currentTime: Double, duration: Double) {
+        //Set the slider's max value equal to the length of whatever song is currently playing
+        songSlider.maximumValue = Float(duration)
+        
+        //To fix the "flickering effect" of the timer, the delegate method should only update the time labels if the user is not interacting with the slider.
+        if !userTouchedSlider {
+        songSlider.value = Float(currentTime)
+        }
+        //Update the current time and the duration UILabels) using the formatted string from the function below:
+        currentTimeLabel.text = convertTimeToString(time: currentTime)
+        durationLabel.text = convertTimeToString(time: duration)
+        
+    }
+    
+    func convertTimeToString(time: Double) -> String {
+        let seconds = Int(time) % 60
+        let minutes = (Int(time) / 60) % 60
+        return String(format: "%0.2d:%0.2d", minutes, seconds)
+    }
 }
