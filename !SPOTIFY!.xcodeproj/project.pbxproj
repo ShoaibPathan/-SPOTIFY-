@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		5F329CCE253D1388001E97FD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F329CCD253D1388001E97FD /* User.swift */; };
 		5F329CD3253D148A001E97FD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F329CD2253D148A001E97FD /* UserService.swift */; };
 		5F6042D2253B94DA0052B76C /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6042D1253B94DA0052B76C /* CategoryCell.swift */; };
+		5F85C423253D2D9800C02630 /* UIImageColors in Frameworks */ = {isa = PBXBuildFile; productRef = 5F85C422253D2D9800C02630 /* UIImageColors */; };
 		5FB2BB57253ADE7900D6652B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2BB56253ADE7900D6652B /* AppDelegate.swift */; };
 		5FB2BB59253ADE7900D6652B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2BB58253ADE7900D6652B /* SceneDelegate.swift */; };
 		5FB2BB5B253ADE7900D6652B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2BB5A253ADE7900D6652B /* HomeViewController.swift */; };
@@ -92,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F85C423253D2D9800C02630 /* UIImageColors in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +240,9 @@
 			dependencies = (
 			);
 			name = "!SPOTIFY!";
+			packageProductDependencies = (
+				5F85C422253D2D9800C02630 /* UIImageColors */,
+			);
 			productName = "!SPOTIFY!";
 			productReference = 5FB2BB53253ADE7900D6652B /* !SPOTIFY!.app */;
 			productType = "com.apple.product-type.application";
@@ -309,6 +314,9 @@
 				Base,
 			);
 			mainGroup = 5FB2BB4A253ADE7900D6652B;
+			packageReferences = (
+				5F85C421253D2D9800C02630 /* XCRemoteSwiftPackageReference "UIImageColors" */,
+			);
 			productRefGroup = 5FB2BB54253ADE7900D6652B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -705,6 +713,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5F85C421253D2D9800C02630 /* XCRemoteSwiftPackageReference "UIImageColors" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jathu/UIImageColors.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5F85C422253D2D9800C02630 /* UIImageColors */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F85C421253D2D9800C02630 /* XCRemoteSwiftPackageReference "UIImageColors" */;
+			productName = UIImageColors;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5FB2BB4B253ADE7900D6652B /* Project object */;
 }

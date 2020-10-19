@@ -1,6 +1,7 @@
 
 import Foundation
 import UIKit
+import UIImageColors
 
 class AlbumViewController: UIViewController {
   
@@ -25,9 +26,11 @@ class AlbumViewController: UIViewController {
         songs = album.songs
         
         //Implement background gradient effect
-        let primaryColor = #colorLiteral(red: 0.5273327231, green: 0.1593059003, blue: 0.4471139908, alpha: 1).cgColor
-        updateBackground(with: primaryColor)
-        
+        albumImage.image?.getColors({ colors in
+            let primaryColor = colors!.primary.withAlphaComponent(0.8).cgColor
+            self.updateBackground(with: primaryColor)
+        })
+              
         albumImage.image = UIImage(named: album.image)
         albumTitleLabel.text = album.name
         descriptionLabel.text = "\(album.followers) followers by \(album.artist)"
@@ -52,8 +55,15 @@ class AlbumViewController: UIViewController {
         let backgroundColor = view.backgroundColor!.cgColor
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.frame
-        gradientLayer.colors = [color, backgroundColor]
+        gradientLayer.colors = [backgroundColor, backgroundColor]
         gradientLayer.locations = [0.0, 0.4]
+        //Gradient layer animation
+        let gradientChangedAnimation = CABasicAnimation(keyPath: "colors")
+        gradientChangedAnimation.duration = 0.5
+        gradientChangedAnimation.toValue = [color, backgroundColor]
+        gradientChangedAnimation.isRemovedOnCompletion = false
+        gradientChangedAnimation.fillMode = .forwards
+        gradientLayer.add(gradientChangedAnimation, forKey: "colorChange")
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
 
