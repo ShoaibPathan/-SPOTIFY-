@@ -3,7 +3,7 @@ import Foundation
 
 class Album: Codable {
     let name: String
-    let followers: Int
+    var followers: Int
     let artist: String
     let image: String
     let songs: [Song]

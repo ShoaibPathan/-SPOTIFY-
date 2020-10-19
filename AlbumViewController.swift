@@ -5,14 +5,9 @@ import UIKit
 class AlbumViewController: UIViewController {
   
     @IBOutlet weak var albumImage: UIImageView!
-    
     @IBOutlet weak var albumTitleLabel: UILabel!
-    
     @IBOutlet weak var followButton: UIButton!
-    
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
