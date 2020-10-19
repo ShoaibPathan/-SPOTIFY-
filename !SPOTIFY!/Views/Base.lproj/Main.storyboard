@@ -298,11 +298,11 @@
                         <outlet property="albumImageView" destination="QTI-Gp-0Ck" id="cNE-I8-mnI"/>
                         <outlet property="albumTitleLabel" destination="GLd-7c-nHJ" id="LZc-3e-6O4"/>
                         <outlet property="artistLabel" destination="fGU-4g-d7s" id="lnA-te-5Mk"/>
-                        <outlet property="endTimeLabel" destination="9UB-Gl-18p" id="zfZ-IR-Wq9"/>
+                        <outlet property="currentTimeLabel" destination="HPB-4C-6Jf" id="biw-dn-FBO"/>
+                        <outlet property="durationLabel" destination="9UB-Gl-18p" id="zfZ-IR-Wq9"/>
                         <outlet property="likeButton" destination="M7u-nn-Px1" id="CQV-Yu-ipS"/>
                         <outlet property="playPauseButton" destination="scC-Um-Prn" id="Fa3-gY-XrY"/>
                         <outlet property="songSlider" destination="MyE-R3-B4f" id="AOP-JC-P89"/>
-                        <outlet property="startTimeLabel" destination="HPB-4C-6Jf" id="biw-dn-FBO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XnF-Jj-W51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
