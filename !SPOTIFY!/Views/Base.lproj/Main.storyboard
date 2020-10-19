@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gWu-PV-XiE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h3u-m5-U7R">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="_SPOTIFY_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="290" estimatedRowHeight="290" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WWK-u7-bch">
-                                <rect key="frame" x="0.0" y="71" width="414" height="771"/>
+                                <rect key="frame" x="0.0" y="103" width="414" height="793"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" rowHeight="290" id="WaQ-fH-u6t" customClass="CategoryCell" customModule="_SPOTIFY_" customModuleProvider="target">
@@ -146,7 +146,7 @@
                     <navigationItem key="navigationItem" id="VdA-In-bKv"/>
                     <connections>
                         <outlet property="tableView" destination="WWK-u7-bch" id="kt4-ld-WHj"/>
-                        <segue destination="Jys-EM-oBy" kind="showDetail" identifier="goToAlbum" id="UWc-rT-OOS"/>
+                        <segue destination="Jys-EM-oBy" kind="presentation" identifier="goToAlbum" modalPresentationStyle="fullScreen" id="LIL-P9-oQV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -307,18 +307,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XnF-Jj-W51" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-584" y="212"/>
+            <point key="canvasLocation" x="-846" y="-1716"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="Lw1-Sh-q7O">
             <objects>
                 <viewController id="Jys-EM-oBy" customClass="AlbumViewController" customModule="_SPOTIFY_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q5J-GF-gON">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urs-Kq-yaI" userLabel="BackButton">
-                                <rect key="frame" x="20" y="5" width="40" height="40"/>
+                                <rect key="frame" x="20" y="49" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="h12-vV-AOt"/>
                                     <constraint firstAttribute="height" constant="40" id="ila-cD-vTl"/>
@@ -330,7 +330,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MgQ-2F-zOx">
-                                <rect key="frame" x="112" y="40" width="190" height="315.5"/>
+                                <rect key="frame" x="112" y="84" width="190" height="315.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ultralife-lg" translatesAutoresizingMaskIntoConstraints="NO" id="2Sv-WP-6qA">
                                         <rect key="frame" x="15" y="0.0" width="160" height="140"/>
@@ -382,7 +382,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yc2-LJ-T16">
-                                <rect key="frame" x="0.0" y="385.5" width="414" height="456.5"/>
+                                <rect key="frame" x="0.0" y="429.5" width="414" height="466.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SongCell" rowHeight="80" id="1fq-0Q-9nS" customClass="SongCell" customModule="_SPOTIFY_" customModuleProvider="target">
@@ -446,6 +446,7 @@
                         <outlet property="followButton" destination="0gD-9q-Od2" id="A03-pN-UiA"/>
                         <outlet property="shuffleButton" destination="HrV-Cy-o1K" id="fkL-Tx-vw6"/>
                         <outlet property="tableView" destination="Yc2-LJ-T16" id="5NQ-Mo-4lH"/>
+                        <segue destination="gWu-PV-XiE" kind="presentation" identifier="SongSegue" modalPresentationStyle="fullScreen" id="Mzj-61-b3n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oz5-Sc-nAr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -472,9 +473,6 @@
             <point key="canvasLocation" x="-3352.1739130434785" y="-1716.2946428571429"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="UWc-rT-OOS"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="back" width="24" height="24"/>
         <image name="down" width="24" height="24"/>

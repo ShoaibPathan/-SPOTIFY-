@@ -8,7 +8,7 @@ import UIImageColors
 class SongViewController: UIViewController  {
  
     var album: Album!
-    var currentSongIndex: Int!
+    var selectedSongIndex: Int!
     var albumPrimaryColor: CGColor!
     var userTouchedSlider = false
 
@@ -33,18 +33,13 @@ override func viewDidLoad() {
         super.viewDidLoad()
         
         AudioService.shared.delegate = self
-        
-        //Temporary: Data Seeding:
-        
-        album = CategoryService.shared.categories.randomElement()!.albums.randomElement()
 
-        currentSongIndex = 0
       
         songSlider.value = 0
         
         currentTimeLabel.text = "00:00"
     
-        let songSelection = album.songs[currentSongIndex]
+        let songSelection = album.songs[selectedSongIndex]
     
     if UserService.shared.isFavorite(song: songSelection ){
         favoriteButton.setImage(UIImage(named: "heart-filled"), for: .normal)
@@ -56,7 +51,7 @@ override func viewDidLoad() {
         playSelectedSong()
         
     //UI customizations:
-        albumPrimaryColor = UIColor.blue.cgColor
+ 
         albumImageView.image = UIImage(named: "\(album.image)-lg")
         let backgroundColor = view.backgroundColor!.cgColor
         let gradientLayer = CAGradientLayer()
@@ -71,7 +66,7 @@ override func viewDidLoad() {
 }
     //Create private class function to play the current selected song
     private func playSelectedSong() {
-        let selectedSong = album.songs[currentSongIndex]
+        let selectedSong = album.songs[selectedSongIndex]
        
         albumTitleLabel.text = selectedSong.title
         artistLabel.text = selectedSong.artist
@@ -80,8 +75,11 @@ override func viewDidLoad() {
     }
     
     
+    
+    
+    
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
-        let selectedSong = album.songs[currentSongIndex]
+        let selectedSong = album.songs[selectedSongIndex]
         if UserService.shared.isFavorite(song: selectedSong){
             UserService.shared.removeFavoriteSong(song: selectedSong)
             favoriteButton.setImage(UIImage(named: "heart"), for: .normal)
@@ -125,18 +123,20 @@ override func viewDidLoad() {
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         //Using the remainder operator to safeguard against an index out of range if user presses the next button and there are no more songs in the album. If the current song index + 1 reaches a point where the remainder is 0 then the current song index will be 0 and will halt
-        currentSongIndex = (currentSongIndex + 1) % album.songs.count
+        selectedSongIndex = (selectedSongIndex + 1) % album.songs.count
         playSelectedSong()
     }
     
     @IBAction func previousButtonPressed(_ sender: UIButton) {
         //Swift Foundation's .max(_:, _:) function compares and returns the greater of two values. To avoid a user pressing previous button when they are already on the first song (to avoid an app crash due to index out of range) then as long as the current song index is subtracted by 1 when this button is tapped then if user tries to go to previous song when there is none, they will be setting the value to -1 and they won't be able to do that because the max function set the value 0 to be the greatest in the event that any number is less than 0
-        currentSongIndex = max(0, currentSongIndex - 1)
+        selectedSongIndex = max(0, selectedSongIndex - 1)
         playSelectedSong()
     }
     
     
     @IBAction func dropdownArrowPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+        AudioService.shared.pause()
     }
     
 }

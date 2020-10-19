@@ -12,7 +12,7 @@ class AlbumViewController: UIViewController {
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-   
+    var albumPrimaryColor: CGColor!
     var album: Album!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -24,6 +24,7 @@ class AlbumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
 
 
         
@@ -32,10 +33,12 @@ class AlbumViewController: UIViewController {
         albumImage.image = UIImage(named: album.image)
         albumTitleLabel.text = album.name
         descriptionLabel.text = "\(album.followers) followers by \(album.artist)"
+        
+        
         //Implement background gradient effect
         albumImage.image?.getColors({ colors in
-            let primaryColor = colors!.primary.withAlphaComponent(0.8).cgColor
-            self.updateBackground(with: primaryColor)
+            self.albumPrimaryColor = colors!.primary.withAlphaComponent(0.8).cgColor
+            self.updateBackground(with: self.albumPrimaryColor)
         })
         
         if UserService.shared.isFollowingAlbum(album: album){
@@ -87,8 +90,24 @@ class AlbumViewController: UIViewController {
         descriptionLabel.text = "\(album.followers) followers by \(album.artist)"
     }
     
-    @IBAction func shuffleButtonPressed(_ sender: UIButton) {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let songViewController = segue.destination as? SongViewController, let selectedSongIndex = sender as? Int {
+            if segue.identifier == "SongSegue" {
+                songViewController.album = album
+                songViewController.selectedSongIndex = selectedSongIndex
+                songViewController.albumPrimaryColor = albumPrimaryColor
+            }
+        }
     }
+    
+    
+    @IBAction func shuffleButtonPressed(_ sender: UIButton) {
+        
+        let randomSongIndex = Int(arc4random_uniform(UInt32(album.songs.count)))
+        performSegue(withIdentifier: "SongSegue", sender: randomSongIndex)
+    }
+    
     
     
     
@@ -107,4 +126,10 @@ extension AlbumViewController: UITableViewDataSource {
     }
     
     
+}
+extension AlbumViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "SongSegue", sender: indexPath.row)
+        
+    }
 }
