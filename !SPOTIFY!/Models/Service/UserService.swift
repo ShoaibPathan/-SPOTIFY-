@@ -3,7 +3,7 @@ import Foundation
 
 class UserService {
     static let shared = UserService()
-    
+
     private let currentUser = User()
     
     private init(){}
@@ -11,12 +11,14 @@ class UserService {
     func favoriteSong(song: Song) {
         if !isFavorite(song: song){
         currentUser.favoritedSongs.append(song.title)
+           
     }
     }
     
     func removeFavoriteSong(song: Song) {
         if let index = currentUser.favoritedSongs.firstIndex(of: song.title) {
             currentUser.favoritedSongs.remove(at: index)
+          
         }
     }
     
@@ -30,6 +32,7 @@ class UserService {
         if !isFollowingAlbum(album: album) {
         currentUser.followingAlbums.append(album.name)
         album.followers += 1
+           
     }
     }
     
@@ -37,6 +40,7 @@ class UserService {
         if let index = currentUser.followingAlbums.firstIndex(of: album.name){
             currentUser.followingAlbums.remove(at: index)
             album.followers -= 1
+         
         }
         
     }
