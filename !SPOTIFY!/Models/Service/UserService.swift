@@ -50,7 +50,5 @@ class UserService {
         return currentUser.followingAlbums.contains(album.name)
     }
     
-    func getUsersAlbums() -> [String] {
-        return currentUser.followingAlbums
-    }
+
 }

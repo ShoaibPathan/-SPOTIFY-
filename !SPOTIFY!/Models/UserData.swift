@@ -3,6 +3,8 @@ import Foundation
 import RealmSwift
 
 class UserData: Object {
-    @objc dynamic let songTitle: String = ""
-    @objc dynamic let albumTitle: String = ""
+
+    @objc dynamic var userFollows: Bool = false 
+
+    @objc dynamic var userLikesSong: String = ""
 }

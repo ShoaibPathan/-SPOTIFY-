@@ -5,7 +5,7 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let realm = try! Realm()
+   
     var categories: [Category]!
     
     
