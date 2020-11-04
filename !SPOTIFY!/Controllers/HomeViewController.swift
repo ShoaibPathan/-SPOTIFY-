@@ -1,33 +1,27 @@
 import UIKit
+import RealmSwift
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-   
+    let realm = try! Realm()
     var categories: [Category]!
     
     
     //Set the status bar icons to white so it shows up on the black background
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        navigationController?.isNavigationBarHidden = true 
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
+        
         //Linked the view controller as the collection view's data source in main.storyboard
         tableView.dataSource = self
     
-       
         categories = CategoryService.shared.categories
     }
     

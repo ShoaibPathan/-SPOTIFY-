@@ -4,15 +4,15 @@ import Foundation
 class UserService {
     static let shared = UserService()
 
-    private let currentUser = User()
+    let currentUser = User()
     
     private init(){}
     
     func favoriteSong(song: Song) {
         if !isFavorite(song: song){
-        currentUser.favoritedSongs.append(song.title)
-           
-    }
+       
+            currentUser.favoritedSongs.append(song.title)
+           }
     }
     
     func removeFavoriteSong(song: Song) {
@@ -48,5 +48,9 @@ class UserService {
     
     func isFollowingAlbum(album: Album) -> Bool {
         return currentUser.followingAlbums.contains(album.name)
+    }
+    
+    func getUsersAlbums() -> [String] {
+        return currentUser.followingAlbums
     }
 }

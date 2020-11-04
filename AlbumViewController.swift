@@ -14,35 +14,29 @@ class AlbumViewController: UIViewController {
     
     var albumPrimaryColor: CGColor!
     var album: Album!
-    
+    var currentUser = User()
     let defaults = UserDefaults.standard
 
-    
-    
+    var usersAlbums = UserService.shared.getUsersAlbums()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        navigationController?.isNavigationBarHidden = true
-     
-       
-
-     
-
-        
-        
-    }
-    override func viewDidLoad() {
+override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
+    
+    
+   
+
+//    followButton.currentTitle = defaults.string(forKey: <#T##String#>)
+    
         tableView.dataSource = self
         tableView.delegate = self
 
        
-       
+        
               
         albumImage.image = UIImage(named: album.image)
         albumTitleLabel.text = album.name
@@ -54,16 +48,7 @@ class AlbumViewController: UIViewController {
             self.albumPrimaryColor = colors!.primary.withAlphaComponent(0.8).cgColor
             self.updateBackground(with: self.albumPrimaryColor)
         })
-        
-        if UserService.shared.isFollowingAlbum(album: album){
-            defaults.bool(forKey: "Following")
-            followButton.setTitle("Following", for: .normal)
-            followButton.layer.borderColor = #colorLiteral(red: 0.1627579331, green: 0.6996970177, blue: 0.2955926955, alpha: 1).cgColor
-        } else {
-            defaults.bool(forKey: "NotFollowing")
-            followButton.setTitle("Follow", for: .normal)
-            followButton.layer.borderColor = UIColor.white.cgColor
-        }
+
         
    //Change button appearance
         shuffleButton.layer.cornerRadius = 10.0
@@ -71,6 +56,18 @@ class AlbumViewController: UIViewController {
         followButton.layer.borderWidth = 2.0
         followButton.layer.borderColor = UIColor.white.cgColor
         
+    
+    if usersAlbums.contains(album.name) {
+        followButton.setTitle("Following", for: .normal)
+        followButton.layer.borderColor = #colorLiteral(red: 0.1627579331, green: 0.6996970177, blue: 0.2955926955, alpha: 1).cgColor
+        
+    } else {
+    
+        followButton.setTitle("Follow", for: .normal)
+        followButton.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    
     }
     
     func updateBackground(with color: CGColor){
@@ -91,31 +88,39 @@ class AlbumViewController: UIViewController {
         
 
     @IBAction func followButtonPressed(_ sender: UIButton) {
-        
-        
-    
-        
-      //Check if the user is already following the album:
-        if UserService.shared.isFollowingAlbum(album: album) {
-            defaults.set(true, forKey: "Following")
-        //if YES and they tap the button then UNFOLLOW the album and change the button back to "Follow" with a white border:
-            UserService.shared.unfollowAlbum(album: album)
-            followButton.setTitle("Follow", for: .normal)
-            followButton.layer.borderColor = UIColor.white.cgColor
-            
-        }
-        else {
-        //if NO, and they tap the button then FOLLOW the album:
-            defaults.set(false, forKey: "NotFollowing")
-            UserService.shared.followAlbum(album: album)
+       
+        if followButton.isSelected {
+            if usersAlbums.contains(album.name) {
+                
             followButton.setTitle("Following", for: .normal)
             followButton.layer.borderColor = #colorLiteral(red: 0.1627579331, green: 0.6996970177, blue: 0.2955926955, alpha: 1).cgColor
-       
+            
+        } else {
+        
+            followButton.setTitle("Follow", for: .normal)
+            followButton.layer.borderColor = UIColor.white.cgColor
         }
-        descriptionLabel.text = "\(album.followers) followers by \(album.artist)"
+            descriptionLabel.text = "\(album.followers) followers by \(album.artist)" }
     }
-    
-    
+//      //Check if the user is already following the album:
+//        if UserService.shared.isFollowingAlbum(album: album) {
+//            defaults.set(true, forKey: "Following")
+//        //if YES and they tap the button then UNFOLLOW the album and change the button back to "Follow" with a white border:
+//            UserService.shared.unfollowAlbum(album: album)
+//            followButton.setTitle("Follow", for: .normal)
+//            followButton.layer.borderColor = UIColor.white.cgColor
+//
+//        }
+//        else {
+//        //if NO, and they tap the button then FOLLOW the album:
+//            defaults.set(false, forKey: "NotFollowing")
+//            UserService.shared.followAlbum(album: album)
+//            followButton.setTitle("Following", for: .normal)
+//            followButton.layer.borderColor = #colorLiteral(red: 0.1627579331, green: 0.6996970177, blue: 0.2955926955, alpha: 1).cgColor
+//
+//        }
+       
+//MARK: -  STORYBOARD SEGUE TO SELECTED ALBUM'S SONG LIST
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let songViewController = segue.destination as? SongViewController, let selectedSongIndex = sender as? Int {
             if segue.identifier == "SongSegue" {
@@ -127,18 +132,16 @@ class AlbumViewController: UIViewController {
     }
     
     
-    @IBAction func shuffleButtonPressed(_ sender: UIButton) {
+@IBAction func shuffleButtonPressed(_ sender: UIButton) {
         
         let randomSongIndex = Int(arc4random_uniform(UInt32(album.songs.count)))
         performSegue(withIdentifier: "SongSegue", sender: randomSongIndex)
     }
-    
-    
-    
-    
+  
 }
 
-extension AlbumViewController: UITableViewDataSource {
+//MARK: -  UITableView Data Source & Delegate Methods
+extension AlbumViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return album.songs.count
         
@@ -152,8 +155,6 @@ extension AlbumViewController: UITableViewDataSource {
     }
     
     
-}
-extension AlbumViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "SongSegue", sender: indexPath.row)
         
