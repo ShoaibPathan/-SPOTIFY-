@@ -11,7 +11,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="_SPOTIFY_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="_SPOTIFY_" customModuleProvider="target" propertyAccessControl="all" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,7 +156,7 @@
         <!--Song View Controller-->
         <scene sceneID="Hhx-xg-xdX">
             <objects>
-                <viewController id="gWu-PV-XiE" customClass="SongViewController" customModule="_SPOTIFY_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gWu-PV-XiE" customClass="SongViewController" customModule="_SPOTIFY_" customModuleProvider="target" propertyAccessControl="all" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qND-Y6-jM3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,7 +313,7 @@
         <!--Album View Controller-->
         <scene sceneID="Lw1-Sh-q7O">
             <objects>
-                <viewController id="Jys-EM-oBy" customClass="AlbumViewController" customModule="_SPOTIFY_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jys-EM-oBy" customClass="AlbumViewController" customModule="_SPOTIFY_" customModuleProvider="target" propertyAccessControl="all" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q5J-GF-gON">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -1,10 +1,13 @@
 
 import Foundation
 
+
+
 class Category: Codable {
     let title: String
-    let subtitle: String
+     let subtitle: String
     let albums: [Album]
+    
   
     init(title: String, subtitle: String, albums: [Album]){
         self.title = title
@@ -12,3 +15,4 @@ class Category: Codable {
         self.albums = albums
     }
 }
+
