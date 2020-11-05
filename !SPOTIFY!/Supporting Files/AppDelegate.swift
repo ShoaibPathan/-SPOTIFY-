@@ -1,19 +1,18 @@
-//
-//  AppDelegate.swift
-//  !SPOTIFY!
-//
-//  Created by Erin Scully on 10/17/20.
-//
 
 import UIKit
-
+import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       print( NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true))
+        
+        do {
+            let realm = try Realm()
+            print(Realm.Configuration.defaultConfiguration.fileURL)        } catch {
+            print("Error initializing Realm database")
+        }
         
         return true
     }

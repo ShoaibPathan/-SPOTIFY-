@@ -1,5 +1,6 @@
 
 import Foundation
+import RealmSwift
 
 class Song: Codable {
     let title: String
@@ -11,3 +12,4 @@ class Song: Codable {
         self.artist = artist
     }
 }
+
