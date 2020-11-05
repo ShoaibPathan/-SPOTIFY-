@@ -28,7 +28,9 @@ override var preferredStatusBarStyle: UIStatusBarStyle {
     
 override func viewDidLoad() {
         super.viewDidLoad()
-     
+   
+  
+    
         navigationController?.isNavigationBarHidden = true
     
         tableView.dataSource = self
@@ -40,23 +42,18 @@ override func viewDidLoad() {
     self.updateBackground(with: self.albumPrimaryColor)})
     
     updateUIElements()
-    
-    
-    followStatus = realm.objects(UserData.self)
-    
-    changeFollowButton()
+    updateStatus()
 
 }
-    
+
 
     
 
     //MARK: - Realm data manipulation methods
 
     @IBAction func followButtonPressed(_ sender: UIButton) {
+       
 
-        
-  
         if UserService.shared.isFollowingAlbum(album: album) {
             UserService.shared.unfollowAlbum(album: album)
             followButton.setTitle("Follow", for: .normal)
@@ -73,8 +70,7 @@ override func viewDidLoad() {
         
         do {
             try realm.write {
-                userFollowStatus.userFollows = UserService.shared.isFollowingAlbum(album: album)
-                realm.add(userFollowStatus)
+                userFollowStatus.userFollows = (followButton.titleLabel?.text!)!
             }
         } catch {
             print("Error saving follow button status")
@@ -152,16 +148,28 @@ extension AlbumViewController {
         followButton.layer.borderColor = UIColor.white.cgColor
         
     }
-    
-    func changeFollowButton() {
-        if UserService.shared.isFollowingAlbum(album: album){
-            followButton.setTitle("Following", for: .normal)
-            followButton.layer.borderColor = UIColor(red: 42.0 / 255.0, green: 183.0 / 255.0, blue: 89.0 / 255.0, alpha: 1.0).cgColor
-        } else{
-            followButton.setTitle("Follow", for: .normal)
-            followButton.layer.borderColor = UIColor.white.cgColor
-    }
-    
-}
+    func updateStatus(){
+            
 
+    if UserService.shared.isFollowingAlbum(album: album){
+       
+        followButton.setTitle("Following", for: .normal)
+        followButton.layer.borderColor = UIColor(red: 42.0 / 255.0, green: 183.0 / 255.0, blue: 89.0 / 255.0, alpha: 1.0).cgColor
+    }
+    else{
+   
+        followButton.setTitle("Follow", for: .normal)
+        followButton.layer.borderColor = UIColor.white.cgColor
+}
+}
+    func loadStatus(){
+        
+        followStatus = realm.objects(UserData.self)
+        
+        if followButton.titleLabel?.text! == "Follow" {
+            
+            followButton.layer.borderColor = UIColor(red: 42.0 / 255.0, green: 183.0 / 255.0, blue: 89.0 / 255.0, alpha: 1.0).cgColor      }
+        else if followButton.titleLabel?.text! == "Following" {
+            followButton.layer.borderColor = UIColor.white.cgColor        }
+    }
 }

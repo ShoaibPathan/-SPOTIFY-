@@ -4,7 +4,7 @@ import RealmSwift
 
 class UserData: Object {
 
-    @objc dynamic var userFollows: Bool = false 
+    @objc dynamic var userFollows: String = ""
 
-    @objc dynamic var userLikesSong: String = ""
+//    @objc dynamic var userLikesSong: String = ""
 }
